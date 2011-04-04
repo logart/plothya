@@ -1,12 +1,17 @@
 from django.conf.urls.defaults import *
-from views import admin
+from plotnya_app.views import admin
+from plotnya_app.views import add_photo
+from plotnya_app.views import del_photo
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^admin/delphoto/', del_photo),
+    (r'^admin/addphoto/', add_photo),
     (r'^admin/', admin),
+    
     # Example:
     # (r'^plotnya/', include('plotnya.foo.urls')),
 
