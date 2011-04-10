@@ -15,7 +15,7 @@ def handle_uploaded_file(img, caption):
 
 def admin(request):
     photos = Photos.objects.all()[0:20]
-    return render_to_response("admin.html", locals())
+    return render_to_response("admin.html", locals(), context_instance=RequestContext(request))
 
 def add_photo(request):
     if request.method == 'POST':
@@ -29,14 +29,11 @@ def add_photo(request):
     new_photo = Photos()
     return render_to_response("add.html")
     
-def del_photo(request):
-    if request.method == 'POST':
-        try:
-            photo = Photos.get(id=request.POST['id'])
-        except DoesNotExist:
-            return render_to_response("del.html",{'errors':'error'})
-        photo.delete()
-        return HttpResponse('ok')
-    else:
-        return HttpResponse('need parameter')
-            
+def del_photo(request, photo_id):
+    
+    try:
+        photo = Photos.objects.get(id=photo_id)
+    except Photos.DoesNotExist:
+        return render_to_response("del.html",{'errors':'error'})
+    photo.delete()
+    return HttpResponseRedirect('/admin/')

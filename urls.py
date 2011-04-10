@@ -8,7 +8,7 @@ from plotnya_app.views import del_photo
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^admin/delphoto/', del_photo),
+    (r'^admin/delphoto/(\d+)', del_photo),
     (r'^admin/addphoto/', add_photo),
     (r'^admin/$', admin),
     

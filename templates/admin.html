@@ -7,10 +7,17 @@
             {% for photo in photos%}
             <tr>
                 <td>
-                    {{ photo.caption }} <img src="{{ MEDIA_URL }}/{{ photo.photo }}">
+                    {{ photo.caption }} 
+                </td>
+                <td>
+                    <img src="/{{ photo.photo }}" alt="{{ photo.caption }}">
+                </td>
+                <td>
+                    <a href="delphoto/{{ photo.id }}">delete photo</a>
                 </td>
             </tr>
             {% endfor %}
         </table>        
+        <a href="addphoto">add photo</a>
     </body>
 </html>
