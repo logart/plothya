@@ -5,3 +5,5 @@
 photo_db.sql
 #Ignore image folder
 galery
+#Ignore django starting script
+django.wsgi

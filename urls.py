@@ -10,7 +10,7 @@ from plotnya_app.views import del_photo
 urlpatterns = patterns('',
     (r'^admin/delphoto/', del_photo),
     (r'^admin/addphoto/', add_photo),
-    (r'^admin/', admin),
+    (r'^admin/$', admin),
     
     # Example:
     # (r'^plotnya/', include('plotnya.foo.urls')),

@@ -3,5 +3,14 @@
     <head>
     </head>
     <body>
+        <table>
+            {% for photo in photos%}
+            <tr>
+                <td>
+                    {{ photo.caption }} <img src="{{ MEDIA_URL }}/{{ photo.photo }}">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>        
     </body>
 </html>

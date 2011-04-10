@@ -7,20 +7,22 @@ from models import Photos
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 
-def handle_uploaded_file(img):
+def handle_uploaded_file(img, caption):
     new_photo = Photos()
     new_photo.photo.save("test_name",img)
+    new_photo.caption = caption
+    new_photo.save()
 
 def admin(request):
-    
-    return render_to_response("admin.html")
+    photos = Photos.objects.all()[0:20]
+    return render_to_response("admin.html", locals())
 
 def add_photo(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/success/url/')
+            handle_uploaded_file(request.FILES['file'], request.POST["title"])
+            return HttpResponseRedirect('/admin/')
     else:
         form = UploadFileForm()
     return render_to_response('upload.html', {'form': form}, context_instance=RequestContext(request))
