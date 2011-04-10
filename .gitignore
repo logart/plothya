@@ -3,3 +3,5 @@
 *.pyc
 # Ignore database
 photo_db.sql
+#Ignore image folder
+galery
