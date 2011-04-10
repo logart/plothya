@@ -1,8 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-    <head>
-    </head>
-    <body>
+{% extends "base.html" %}
+
+{% block title %}Admin page{% endblock %}
+
+{% block content %}
         <table>
             {% for photo in photos%}
             <tr>
@@ -10,14 +10,14 @@
                     {{ photo.caption }} 
                 </td>
                 <td>
-                    <img src="/{{ photo.photo }}" alt="{{ photo.caption }}">
+                    <img src="/{{ photo.photo }}" alt="{{ photo.caption }}" width="30%">
                 </td>
                 <td>
                     <a href="delphoto/{{ photo.id }}">delete photo</a>
+                    <a href="" onclick="">ajax delete photo</a>
                 </td>
             </tr>
             {% endfor %}
         </table>        
         <a href="addphoto">add photo</a>
-    </body>
-</html>
+{% endblock %}

@@ -1,9 +1,9 @@
-<html>
-<head>
-    <title>Contact us</title>
-</head>
-<body>
-    <h1>Contact us</h1>
+{% extends "base.html" %}
+
+{% block title %}Upload a photo{% endblock %}
+
+{% block content %}
+    <h1>Uploading</h1>
 
     {% if form.errors %}
         <p style="color: red;">
@@ -18,5 +18,4 @@
         </table>
         <input type="submit" value="Submit">
     </form>
-</body>
-</html>
+{% endblock %}
