@@ -1,0 +1,5 @@
+# Lines starting with '#' are considered comments.
+# Ignore compiled python files
+*.pyc
+# Ignore database
+photo_db.sql
